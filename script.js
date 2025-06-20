@@ -102,7 +102,7 @@ backToTopBtn.addEventListener('click', () => {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<svg class="w-5 h-5 animate-spin mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356-2A8.001 8.001 0 004 12c0 2.127.8 4.07 2.189 5.56l-.582.582m-4.407-4.407a8.001 8.001 0 0115.356-2A8.001 8.001 0 004 12c0 2.127.8 4.07 2.189 5.56l-.582.582"/></svg> Enviando...';
+            submitBtn.innerHTML = '<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Enviando...';
             
             try {
                 await new Promise(resolve => setTimeout(resolve, 1500));
