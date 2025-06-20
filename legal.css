@@ -1,0 +1,67 @@
+/* Estilo para as páginas de Política de Privacidade e Termos de Serviço */
+
+:root {
+    --gray-900: #111827;
+    --gray-700: #374151;
+    --gray-300: #d1d5db;
+    --green-400: #4ade80;
+    --purple-500: #a855f7;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--gray-900);
+    color: var(--gray-300);
+    line-height: 1.6;
+    margin: 0;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(31, 41, 55, 0.5); /* --gray-800 com transparência */
+    border-radius: 8px;
+    border: 1px solid var(--gray-700);
+}
+
+h1, h2 {
+    color: var(--green-400);
+    border-bottom: 1px solid var(--gray-700);
+    padding-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+p, li {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+strong {
+    color: #ffffff;
+}
+
+.back-link {
+    display: block;
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--purple-500);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #ffffff;
+}

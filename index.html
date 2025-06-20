@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A QTech desenvolve soluções tecnológicas inovadoras, incluindo sites, sistemas personalizados, IA e softwares sob demanda para impulsionar o seu negócio.">
+    <link rel="icon" type="image/png" href="/assets/images/logo_image.png">
+    <title>QTech Soluções Tecnológicas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "QTech Soluções Tecnológicas",
+  "image": "assets/images/logo_image.png",
+  "url": "https://www.qtechsolucoestecnologicas.com",
+  "telephone": "+5581995333433",
+  "email": "qtechsolucoestecnologicas@gmail.com",
+  "description": "Empresa de desenvolvimento de software especializada em soluções web, sistemas personalizados e inteligência artificial.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Recife",
+    "addressRegion": "PE",
+    "addressCountry": "BR"
+  }
+}
+</script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen flex flex-col bg-gray-900 font-inter relative dark">
+    <div id="loader-screen" class="fixed inset-0 bg-black flex flex-col items-center justify-center z-50 transition-opacity duration-500 ease-out">
+        <img id="loader-logo" src="assets/images/logo_image.png" alt="QTech Logo Loader" class="mb-8 w-56 h-56 object-contain animate-scale-in">
+        <div class="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+
+    <div class="fixed inset-0 overflow-hidden -z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-green-900 via-black to-green-900 opacity-20 animate-pulse-slow"></div>
+        <div class="absolute inset-0 bg-black opacity-70"></div>
+        <canvas id="background-canvas" class="absolute inset-0 w-full h-full"></canvas>
+        <div class="absolute rounded-full bg-purple-500/20 blur-xl w-[40px] h-[40px] top-[20%] left-[10%] animate-float-slow" style="animation-delay: 0s;"></div>
+        <div class="absolute rounded-full bg-green-500/20 blur-xl w-[60px] h-[60px] top-[70%] left-[80%] animate-float-slow" style="animation-delay: 2s;"></div>
+        <div class="absolute rounded-full bg-purple-500/20 blur-xl w-[30px] h-[30px] top-[50%] left-[40%] animate-float-slow" style="animation-delay: 1s;"></div>
+        <div class="absolute rounded-full bg-green-500/20 blur-xl w-[50px] h-[50px] top-[10%] left-[60%] animate-float-slow" style="animation-delay: 3s;"></div>
+        <div class="absolute rounded-full bg-purple-500/20 blur-xl w-[70px] h-[70px] top-[80%] left-[20%] animate-float-slow" style="animation-delay: 4s;"></div>
+    </div>
+
+    <div id="scroll-progress-bar" class="fixed top-0 left-0 w-full h-1 bg-gray-700 dark:bg-gray-800 z-50">
+        <div class="h-full bg-green-500 transition-all duration-100 ease-out" style="width: 0%;"></div>
+    </div>
+
+    <header class="w-full bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-md text-white p-4 shadow-lg sticky top-0 z-40 animate-slide-down">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#home" class="text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-purple-600 cursor-pointer flex items-center space-x-2 md:space-x-4">
+                <img id="header-logo" src="assets/images/logo_image.png" alt="Logo QTech" class="mr-2 w-16 h-16 rounded-full">
+                <span class="hover:text-green-300">QTech <span class="hidden sm:inline">Soluções Tecnológicas</span></span>
+            </a>
+
+            <nav class="hidden md:flex space-x-6">
+                <a href="#home" class="nav-item relative text-lg font-medium py-2 px-3 rounded-md transition-colors text-gray-300 hover:text-green-300 hover:bg-gray-700/30">Home</a>
+                <a href="#sobre" class="nav-item relative text-lg font-medium py-2 px-3 rounded-md transition-colors text-gray-300 hover:text-green-300 hover:bg-gray-700/30">Sobre</a>
+                <a href="#servicos" class="nav-item relative text-lg font-medium py-2 px-3 rounded-md transition-colors text-gray-300 hover:text-green-300 hover:bg-gray-700/30">Serviços</a>
+                <a href="#portfolio" class="nav-item relative text-lg font-medium py-2 px-3 rounded-md transition-colors text-gray-300 hover:text-green-300 hover:bg-gray-700/30">Portfólio</a>
+                <a href="#precos" class="nav-item relative text-lg font-medium py-2 px-3 rounded-md transition-colors text-gray-300 hover:text-green-300 hover:bg-gray-700/30">Preços</a>
+                <a href="#contato" class="nav-item relative text-lg font-medium py-2 px-3 rounded-md transition-colors text-gray-300 hover:text-green-300 hover:bg-gray-700/30">Contato</a>
+            </nav>
+
+            <button id="menu-toggle" class="p-2 rounded-md md:hidden bg-gray-700 hover:bg-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500" aria-label="Abrir menu de navegação">
+                <svg id="menu-icon" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <svg id="x-icon" class="w-6 h-6 text-white hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <nav id="mobile-menu" class="md:hidden mt-4 bg-gray-800/90 rounded-b-lg overflow-hidden h-0 opacity-0 transition-all duration-300 ease-out">
+            <ul class="flex flex-col items-center py-4 space-y-4">
+                <li><a href="#home" class="mobile-nav-item block text-xl font-medium py-2 px-4 rounded-md transition-colors text-gray-300 hover:text-green-300 hover:bg-gray-700/30">Home</a></li>
+                <li><a href="#sobre" class="mobile-nav-item block text-xl font-medium py-2 px-4 rounded-md transition-colors text-gray-300 hover:text-green-300 hover:bg-gray-700/30">Sobre</a></li>
+                <li><a href="#servicos" class="mobile-nav-item block text-xl font-medium py-2 px-4 rounded-md transition-colors text-gray-300 hover:text-green-300 hover:bg-gray-700/30">Serviços</a></li>
+                <li><a href="#portfolio" class="mobile-nav-item block text-xl font-medium py-2 px-4 rounded-md transition-colors text-gray-300 hover:text-green-300 hover:bg-gray-700/30">Portfólio</a></li>
+                <li><a href="#precos" class="mobile-nav-item block text-xl font-medium py-2 px-4 rounded-md transition-colors text-gray-300 hover:text-green-300 hover:bg-gray-700/30">Preços</a></li>
+                <li><a href="#contato" class="mobile-nav-item block text-xl font-medium py-2 px-4 rounded-md transition-colors text-gray-300 hover:text-green-300 hover:bg-gray-700/30">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="flex-grow relative z-10">
+        <section id="home" class="flex flex-col items-center justify-center text-center text-white px-8 pt-24 pb-16 sm:pt-32 sm:pb-24 md:pt-40 md:pb-32 relative z-10 animate-fade-in">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-purple-600 animate-slide-in-up -mt-12 home-title-adjusted-line-height"> QTech Soluções Tecnológicas
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl text-gray-300 animate-slide-in-up" style="animation-delay: 0.3s;">
+                Inovação e Expertise para o Futuro Digital. Desenvolvemos soluções web, sistemas personalizados, IA e softwares sob demanda.
+            </p>
+            <a href="#servicos" class="bg-gradient-to-r from-purple-600 to-green-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-75 animate-scale-in" style="animation-delay: 0.6s;">
+                Nossos Serviços
+            </a>
+            <div class="absolute top-1/4 left-10 w-24 h-24 bg-purple-500 rounded-full mix-blend-screen opacity-10 blur-xl animate-float-slow"></div>
+            <div class="absolute bottom-1/4 right-10 w-32 h-32 bg-green-500 rounded-full mix-blend-screen opacity-10 blur-xl animate-float-slow" style="animation-delay: 2s;"></div>
+        </section>
+
+        <section id="sobre" class="min-h-screen p-8 text-white flex flex-col items-center justify-center relative z-10 animated-section">
+            <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-purple-600 mb-8 animated-heading">Sobre Nós</h2>
+            <div class="bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-lg rounded-xl p-8 max-w-4xl text-lg space-y-6 border border-gray-700 shadow-lg animated-card">
+                <p>
+                    Na QTech, somos apaixonados por tecnologia e impulsionados pela inovação. Como empresa recém-criada, pretendemos criar soluções digitais que transformam negócios e impulsionam o sucesso de nossos clientes. Estamos prontos para enfrentar os desafios mais complexos.
+                </p>
+                <p>
+                    <strong>Missão:</strong> Capacitar empresas com tecnologia de ponta, desenvolvendo soluções personalizadas que otimizem processos, melhorem a experiência do usuário e gerem resultados tangíveis.
+                </p>
+                <p>
+                    <strong>Visão:</strong> Ser reconhecida como líder em inovação tecnológica, a escolha preferencial para empresas que buscam excelência e vanguarda em soluções digitais.
+                </p>
+                <h3 class="text-2xl font-semibold text-green-400 mt-6">Tecnologias que dominamos:</h3>
+                <ul class="list-disc list-inside grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <li>React, Next.js, Vue.js, Angular</li>
+                    <li>Node.js, Python, Java</li>
+                    <li>Bancos de Dados: PostgreSQL, MongoDB, Firebase</li>
+                    <li>Implementação de sistemas com IA</li>
+                    <li>Plataforma WordPress</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="servicos" class="min-h-screen p-8 text-white flex flex-col items-center justify-center relative z-10 animated-section">
+            <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-green-400 mb-12 animated-heading">Nossos Serviços</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl">
+                <div class="service-card bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-lg rounded-xl p-6 border border-gray-700 shadow-xl flex flex-col items-center text-center group cursor-pointer animated-card">
+                    <div class="text-green-400 mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Desenvolvimento Web</h3>
+                    <p class="text-gray-300">Criação de websites responsivos e performáticos, do marketing ao e-commerce.</p>
+                </div>
+                <div class="service-card bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-lg rounded-xl p-6 border border-gray-700 shadow-xl flex flex-col items-center text-center group cursor-pointer animated-card">
+                    <div class="text-green-400 mb-4 group-hover:scale-110 transition-transform">
+                      <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5">
+                     <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375" /></svg>                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Sistemas Personalizados</h3>
+                    <p class="text-gray-300">Soluções sob medida para otimizar processos e gerenciar dados complexos.</p>
+                </div>
+                <div class="service-card bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-lg rounded-xl p-6 border border-gray-700 shadow-xl flex flex-col items-center text-center group cursor-pointer animated-card">
+                    <div class="text-green-400 mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.572L16.5 21.75l-.398-1.178a3.375 3.375 0 00-2.302-2.302L12.75 18l1.178-.398a3.375 3.375 0 002.302-2.302L16.5 14.25l.398 1.178a3.375 3.375 0 002.302 2.302L20.25 18l-1.178.398a3.375 3.375 0 00-2.302 2.302z" />
+                    </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Inteligência Artificial</h3>
+                    <p class="text-gray-300">Implementação de IA para automação, análise preditiva e otimização de negócios.</p>
+                </div>
+                <div class="service-card bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-lg rounded-xl p-6 border border-gray-700 shadow-xl flex flex-col items-center text-center group cursor-pointer animated-card">
+                    <div class="text-green-400 mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-1.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25A2.25 2.25 0 015.25 3h13.5A2.25 2.25 0 0121 5.25z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Softwares Sob Demanda</h3>
+                    <p class="text-gray-300">Desenvolvimento de aplicativos desktop e mobile para necessidades específicas.</p>
+                </div>
+            </div>
+        </section>
+
+     <section id="portfolio" class="min-h-screen p-8 text-white flex flex-col items-center justify-center relative z-10 animated-section">
+    <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-purple-600 mb-12 animated-heading">Nosso Portfólio</h2>
+
+    <div class="bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-lg rounded-xl p-8 md:p-12 max-w-3xl w-full text-center space-y-4 border border-gray-700 shadow-xl animated-card">
+        
+<div class="text-green-400 mx-auto mb-4">
+    <svg class="w-20 h-20 mx-auto animate-spin-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25" />
+    </svg>
+</div>
+        
+        <h3 class="text-3xl font-bold text-white">Em breve, grandes projetos.</h3>
+        
+        <p class="text-gray-300 max-w-2xl mx-auto text-lg">
+            Somos uma agência de tecnologia recém-formada, apaixonada por inovação. Nossos primeiros projetos incríveis estão em pleno desenvolvimento e, logo mais, estarão aqui para você conferir. Cada linha de código está sendo escrita com o máximo de dedicação e qualidade.
+        </p>
+
+        <p class="text-gray-300 max-w-2xl mx-auto pt-4">
+            Enquanto isso, acompanhe nossos bastidores no Instagram!
+        </p>
+        
+        <div class="pt-4">
+             <a href="https://www.instagram.com/qtechsolucoestecnologicas?igsh=MWhkZTI2endwdHpoaw== target="_blank rel="noopener noreferrer" class="inline-block bg-gradient-to-r from-purple-600 to-green-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                Ver no Instagram
+            </a>
+        </div>
+    </div>
+</section>
+
+        <section id="precos" class="min-h-screen p-8 text-white flex flex-col items-center justify-center relative z-10 animated-section">
+            <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-green-400 mb-12 animated-heading">Nossos Planos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                <div class="pricing-card bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-lg rounded-xl p-8 border border-gray-700 shadow-xl flex flex-col cursor-pointer animated-card">
+                    <h3 class="text-3xl font-bold mb-4 text-center text-green-400">Básico</h3>
+                    <p class="text-5xl font-extrabold text-center mb-6 text-purple-400">A partir de R$500,00 </p>
+                    <ul class="text-gray-300 space-y-3 flex-grow">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Website Institucional (Para preços com domínio e hospedagem, consultar valores)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Design Responsivo</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Otimização SEO Básica</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Suporte por Email</li>
+                    </ul>
+                </div>
+                <div class="pricing-card bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-lg rounded-xl p-8 border border-gray-700 shadow-xl flex flex-col cursor-pointer animated-card">
+                    <h3 class="text-3xl font-bold mb-4 text-center text-green-400">Padrão</h3>
+                    <p class="text-5xl font-extrabold text-center mb-6 text-purple-400">A partir de R$ 1000,00 </p>
+                    <ul class="text-gray-300 space-y-3 flex-grow">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Tudo do Básico</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Sistema de Gerenciamento de Conteúdo</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Integração de Blog</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Formulário de Contato Avançado</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0"  fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Suporte Prioritário</li>
+                    </ul>
+                </div>
+                <div class="pricing-card bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-lg rounded-xl p-8 border border-gray-700 shadow-xl flex flex-col cursor-pointer animated-card">
+                    <h3 class="text-3xl font-bold mb-4 text-center text-green-400">Premium</h3>
+                    <p class="text-5xl font-extrabold text-center mb-6 text-purple-400">A partir de R$ 2000,00</p>
+                    <ul class="text-gray-300 space-y-3 flex-grow">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Tudo do Padrão</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Desenvolvimento de E-commerce ou Sistema Personalizado</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Integração de IA (Básica)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Consultoria Estratégica</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Suporte 24/7</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="min-h-screen p-8 text-white flex flex-col items-center justify-center relative z-10 animated-section">
+            <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-purple-600 mb-8 animated-heading">Entre em Contato</h2>
+            <div class="bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-lg rounded-xl p-8 max-w-2xl w-full border border-gray-700 shadow-lg animated-card">
+               <form id="contact-form" class="space-y-6" name="contact" data-netlify="true">
+                    <div>
+                        <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Nome:</label>
+                        <input type="text" id="name" name="name" required class="shadow appearance-none border border-gray-600 rounded-lg w-full py-3 px-4 bg-gray-700 text-white leading-tight focus:outline-none focus:shadow-outline focus:border-green-500" aria-label="Seu nome">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Email:</label>
+                        <input type="email" id="email" name="email" required class="shadow appearance-none border border-gray-600 rounded-lg w-full py-3 px-4 bg-gray-700 text-white leading-tight focus:outline-none focus:shadow-outline focus:border-green-500" aria-label="Seu email">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Mensagem:</label>
+                        <textarea id="message" name="message" rows="5" required class="shadow appearance-none border border-gray-600 rounded-lg w-full py-3 px-4 bg-gray-700 text-white leading-tight focus:outline-none focus:shadow-outline focus:border-green-500 resize-none" aria-label="Sua mensagem"></textarea>
+                    </div>
+                    <button type="submit" id="submit-btn" class="bg-gradient-to-r from-purple-600 to-green-500 text-white font-bold py-3 px-8 rounded-full w-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-75" aria-label="Enviar mensagem">
+                        Enviar Mensagem
+                    </button>
+                    <div id="submit-status" class="mt-4 p-3 hidden rounded-lg text-center" role="alert"></div>
+                </form>
+                <div class="mt-8 text-center text-gray-400">
+                    <p>Ou entre em contato diretamente:</p>
+                    <p class="mt-2 text-green-400 font-semibold break-all">qtechsolucoestecnologicas@gmail.com | (81) 99533-3433</p>
+                    <div class="flex justify-center space-x-4 mt-4">
+                        <a href="https://www.linkedin.com/in/qtech-solu%C3%A7%C3%B5es-tecnol%C3%B3gicas-8a9869370/" class="text-gray-400 hover:text-green-500 transition-colors" aria-label="LinkedIn"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                        <a href="https://www.instagram.com/qtechsolucoestecnologicas?igsh=MWhkZTI2endwdHpoaw== target=" class="text-gray-400 hover:text-green-500 transition-colors" aria-label="Instagram">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.784.305-1.459.717-2.126 1.384S.935 3.356.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.784.718 1.459 1.384 2.126.667.666 1.342 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.784-.305 1.459-.718 2.126-1.384.666-.667 1.079-1.342 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.148-.558-2.913-.306-.784-.718-1.459-1.384-2.126C21.314.935 20.64.522 19.86.225c-.765-.296-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.06 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.82.679-1.381.896-.422.164-1.057.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.585-.015-4.85-.074c-1.17-.06-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.015-3.585.074-4.85c.06-1.17.249-1.805.413-2.227.217-.562.477-.96.896-1.382.42-.419.82-.679 1.381-.896.422-.164 1.057-.36 2.227-.413C8.415 2.175 8.797 2.16 12 2.16zm0 5.185c-3.396 0-6.155 2.76-6.155 6.155 0 3.396 2.759 6.155 6.155 6.155s6.155-2.759 6.155-6.155c0-3.396-2.759-6.155-6.155-6.155zm0 10.155c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-md text-gray-400 py-6 text-center shadow-inner mt-auto animate-fade-in" style="animation-delay: 1s;">
+        <div class="container mx-auto px-4">
+            <p>&copy; <span id="current-year"></span> QTech Soluções Tecnológicas. Todos os direitos reservados.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="politica-de-privacidade.html" class="hover:text-green-400 transition-colors" aria-label="Política de Privacidade">Política de Privacidade</a>
+                <a href="termos-de-servico.html" class="hover:text-green-400 transition-colors" aria-label="Termos de Serviço">Termos de Serviço</a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5581995333433" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors z-50 animate-bounce-slow" aria-label="Chat via WhatsApp">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C7.34 2 3.54 5.76 3.54 10.45C3.54 12.04 4.07 13.52 4.96 14.81L3.63 18.23L7.18 17.1C8.36 17.76 9.69 18.11 11.09 18.11H11.17C15.87 18.11 19.67 14.35 19.67 9.66C19.67 4.97 15.87 2 11.17 2H12.04ZM16.36 13.39C16.14 13.79 15.19 14.24 14.71 14.32C14.23 14.41 13.78 14.46 13.33 14.3C12.89 14.15 12.23 13.91 11.49 13.25C10.74 12.6 10.19 11.75 9.87 11.23C9.55 10.71 9.35 10.29 9.14 9.89C8.94 9.5 8.73 9.31 8.52 9.22C8.32 9.13 8.09 9.13 7.89 9.13C7.69 9.13 7.42 9.13 7.23 9.4C7.04 9.67 6.64 10.15 6.64 11.08C6.64 12.01 7.29 12.91 7.43 13.04C7.57 13.18 8.81 15.17 10.78 16.03C12.75 16.9 14.49 16.74 15.07 16.59C15.65 16.44 16.04 16.09 16.27 15.69C16.5 15.29 16.5 14.92 16.36 14.65C16.22 14.38 16.36 13.59 16.36 13.39Z" /></svg>
+    </a>
+
+    <button id="back-to-top-btn" class="fixed bottom-6 left-6 bg-purple-600 text-white p-3 rounded-full shadow-lg hover:bg-purple-700 transition-colors z-50 opacity-0 transform translate-y-20 hidden" aria-label="Voltar ao topo">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+    
+    <script src="script.js"></script>
+</body>
+</html>
