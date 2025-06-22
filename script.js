@@ -1,22 +1,12 @@
-// Aguarda o carregamento completo do conteúdo da página antes de executar os scripts.
 document.addEventListener('DOMContentLoaded', () => {
+document.getElementById('current-year').textContent = new Date().getFullYear();
 
-    // --- INICIALIZAÇÃO E CONFIGURAÇÕES GERAIS ---
-    
-    // Define o ano atual no rodapé.
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-
-    // Referências para os elementos do logo.
     const loaderLogo = document.getElementById('loader-logo');
     const headerLogo = document.getElementById('header-logo');
     const logoImagePath = "assets/images/logo_image.png";
 
-    // Define a imagem do logo no loader e no cabeçalho.
     if (loaderLogo) loaderLogo.src = logoImagePath;
     if (headerLogo) headerLogo.src = logoImagePath;
-
-
-    // --- LÓGICA DA TELA DE CARREGAMENTO (LOADER) ---
     
     const loaderScreen = document.getElementById('loader-screen');
     
@@ -29,9 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 2000);
     
-    
-    // --- MENU DE NAVEGAÇÃO MOBILE ---
-
     const menuToggleBtn = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
@@ -63,9 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    
-    // --- BARRA DE PROGRESSO DE SCROLL ---
-
     const scrollProgressBar = document.querySelector('#scroll-progress-bar > div');
     window.addEventListener('scroll', () => {
         const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -73,9 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const percentage = (scrolled / totalHeight) * 100;
         if(scrollProgressBar) scrollProgressBar.style.width = `${percentage}%`;
     });
-
-    
-    // --- BOTÃO 'VOLTAR AO TOPO' ---
 
     const backToTopBtn = document.getElementById('back-to-top-btn');
     window.addEventListener('scroll', () => {
@@ -91,8 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
 backToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0 });
 });
-    
-    // --- FORMULÁRIO DE CONTATO ---
 
     const contactForm = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
@@ -120,9 +99,6 @@ backToTopBtn.addEventListener('click', () => {
         });
     }
 
-    
-    // --- ANIMAÇÕES AO ROLAR A PÁGINA (INTERSECTION OBSERVER) ---
-
     const observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
     const observerCallback = (entries, observer) => {
         entries.forEach(entry => {
@@ -134,8 +110,6 @@ backToTopBtn.addEventListener('click', () => {
     };
     const observer = new IntersectionObserver(observerCallback, observerOptions);
     document.querySelectorAll('.animated-section, .animated-heading, .animated-card').forEach(el => observer.observe(el));
-    
-    // --- ANIMAÇÃO DE PARTÍCULAS EM CANVAS NO FUNDO ---
     
     const canvas = document.getElementById('background-canvas');
     if (canvas) {
