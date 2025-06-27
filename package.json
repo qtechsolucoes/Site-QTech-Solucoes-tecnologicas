@@ -1,0 +1,19 @@
+
+{
+  "name": "qtech-solucoes-tecnologicas",
+  "version": "1.0.0",
+  "description": "Repositório do site da QTech Soluções Tecnológicas",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/style.css --minify",
+    "watch:css": "npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/style.css --watch",
+    "dev": "npm run watch:css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^4.1.11",
+    "@tailwindcss/cli": "^4.1.11" 
+  }
+}
