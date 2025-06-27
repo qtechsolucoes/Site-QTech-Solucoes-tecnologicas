@@ -1,0 +1,16 @@
+/* assets/css/variables.css */
+
+:root {
+    --green-400: #4ade80;
+    --purple-600: #9333ea;
+    --green-500: #22c55e;
+    --purple-500: #a855f7;
+    --purple-700: #7e22ce;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --yellow-300: #fde047;
+    --indigo-400: #818cf8;
+    --red-700: #b91c1c;
+    --green-700: #047857;
+}

@@ -1,0 +1,41 @@
+/* assets/css/base.css */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--gray-900);
+    color: #ffffff;
+}
+
+html.dark { /* Certifique-se de que esta classe é aplicada ao <html> para o modo escuro */
+    background-color: var(--gray-900);
+    color: #ffffff;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar { /* */
+  width: 12px; /* */
+}
+
+::-webkit-scrollbar-track { /* */
+  background: var(--gray-800); /* */
+}
+
+::-webkit-scrollbar-thumb { /* */
+  background-color: var(--green-500); /* */
+  border-radius: 20px; /* */
+  border: 3px solid var(--gray-800); /* */
+}
+
+::-webkit-scrollbar-thumb:hover { /* */
+  background-color: var(--green-400); /* */
+}
+
+html { /* */
+  scrollbar-width: thin; /* */
+  scrollbar-color: var(--green-500) var(--gray-800); /* */
+}
+
+/* Ajustes de linha para o título da home (mantido aqui ou em layout.css se preferir) */
+#home h1.home-title-adjusted-line-height {
+    line-height: 1.2;
+}

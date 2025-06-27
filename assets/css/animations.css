@@ -1,0 +1,117 @@
+/* assets/css/animations.css */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(-10px) translateX(10px);
+    }
+    50% {
+        transform: translateY(10px) translateX(-10px);
+    }
+    75% {
+        transform: translateY(-5px) translateX(5px);
+    }
+}
+
+@keyframes pulse-slow {
+    0%, 100% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.35;
+    }
+}
+
+@keyframes bounce-slow {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+.animate-float-slow { animation: float 10s infinite ease-in-out alternate; }
+.animate-pulse-slow { animation: pulse-slow 15s infinite ease-in-out alternate; }
+.animate-bounce-slow { animation: bounce-slow 2s infinite ease-in-out; }
+.animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+.animate-scale-in { animation: scaleIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+.animate-slide-in-left { animation: slideInLeft 0.7s ease-out forwards; }
+.animate-slide-in-up { animation: slideInUp 0.8s ease-out forwards; }
+.animate-slide-down { animation: slideDown 0.5s ease-out forwards; }
+
+/* Animation for Intersection Observer */
+.animated-section {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animated-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animated-heading {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.animated-heading.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animated-card {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animated-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Specific Project Card Animation (if you add a project grid later) */
+.animated-project {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.animated-project.is-visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Spin animation for loader (already in script.js but good to have CSS version) */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.animate-spin { animation: spin 1s linear infinite; }

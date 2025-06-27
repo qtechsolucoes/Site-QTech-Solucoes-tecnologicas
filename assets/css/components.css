@@ -1,0 +1,361 @@
+/* assets/css/components.css */
+
+/* Home Section Buttons */
+#home a {
+    background-image: linear-gradient(to right, var(--purple-600), var(--green-500));
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 2rem; /* py-3 px-8 */
+    border-radius: 9999px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+#home a:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+#home a:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.75);
+}
+
+/* About Section Card */
+#sobre div {
+    background-image: linear-gradient(to bottom right, rgba(31, 41, 55, 0.6), rgba(17, 24, 39, 0.6));
+    backdrop-filter: blur(12px);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    max-width: 56rem; /* max-w-4xl */
+    font-size: 1.125rem; /* text-lg */
+    border: 1px solid var(--gray-700);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+#sobre h3 {
+    font-size: 1.5rem; /* 24px */
+    font-weight: 600;
+    color: var(--green-400);
+    margin-top: 1.5rem;
+}
+
+#sobre ul {
+    list-style-type: disc;
+    padding-left: 1.25rem; /* list-inside */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    #sobre ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Service Cards */
+.service-card {
+    background-image: linear-gradient(to bottom right, rgba(31, 41, 55, 0.6), rgba(17, 24, 39, 0.6));
+    backdrop-filter: blur(12px);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    border: 1px solid var(--gray-700);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
+}
+
+.service-card .text-green-400 {
+    color: var(--green-400);
+    margin-bottom: 1rem;
+}
+
+.service-card .text-green-400 svg {
+    width: 4rem; /* w-16 */
+    height: 4rem; /* h-16 */
+}
+
+.service-card .group-hover\:scale-110 {
+    transition-property: transform;
+    transition-duration: 150ms;
+}
+
+.service-card:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+}
+
+.service-card h3 {
+    font-size: 1.5rem; /* 24px */
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.service-card p {
+    color: var(--gray-300);
+}
+
+/* Portfolio Section */
+#portfolio > div {
+    background-image: linear-gradient(to bottom right, rgba(31, 41, 55, 0.6), rgba(17, 24, 39, 0.6));
+    backdrop-filter: blur(12px);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    max-width: 48rem; /* max-w-3xl */
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--gray-700);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+    #portfolio > div {
+        padding: 3rem; /* md:p-12 */
+    }
+}
+
+#portfolio .text-green-400 svg {
+    width: 5rem; /* w-20 */
+    height: 5rem; /* h-20 */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+}
+
+#portfolio h3 {
+    font-size: 1.875rem; /* 30px */
+    font-weight: 700;
+    color: white;
+}
+
+#portfolio p {
+    color: var(--gray-300);
+    max-width: 42rem; /* max-w-2xl */
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.125rem; /* text-lg */
+}
+
+#portfolio p.pt-4 {
+    padding-top: 1rem;
+}
+
+#portfolio .pt-4 {
+    padding-top: 1rem;
+}
+
+#portfolio a {
+    display: inline-block;
+    background-image: linear-gradient(to right, var(--purple-600), var(--green-500));
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 2rem; /* py-3 px-8 */
+    border-radius: 9999px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+#portfolio a:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+/* Pricing Cards */
+.pricing-card {
+    background-image: linear-gradient(to bottom right, rgba(31, 41, 55, 0.6), rgba(17, 24, 39, 0.6));
+    backdrop-filter: blur(12px);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    border: 1px solid var(--gray-700);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
+}
+
+.pricing-card h3 {
+    font-size: 1.875rem; /* 30px */
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--green-400);
+}
+
+.pricing-card p.text-5xl {
+    font-size: 3rem; /* 48px */
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--purple-400); /* Tailwind usa purple-400, usar purple-500 ou definir */
+}
+
+.pricing-card ul {
+    color: var(--gray-300);
+    margin-top: 0;
+    padding: 0;
+    list-style: none; /* Remove default list style */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.pricing-card li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.pricing-card li svg {
+    width: 1.25rem; /* w-5 */
+    height: 1.25rem; /* h-5 */
+    color: var(--green-500);
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* Contact Form */
+#contato > div {
+    background-image: linear-gradient(to bottom right, rgba(31, 41, 55, 0.6), rgba(17, 24, 39, 0.6));
+    backdrop-filter: blur(12px);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    max-width: 42rem; /* max-w-2xl */
+    width: 100%;
+    border: 1px solid var(--gray-700);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+#contato form label {
+    display: block;
+    color: var(--gray-300);
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+#contato form input,
+#contato form textarea {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    appearance: none;
+    border: 1px solid var(--gray-600);
+    border-radius: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--gray-700);
+    color: white;
+    line-height: 1.5;
+    outline: none;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#contato form input:focus,
+#contato form textarea:focus {
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.5); /* focus:shadow-outline focus:border-green-500 */
+}
+
+#contato form textarea {
+    resize: vertical;
+}
+
+#contato form button[type="submit"] {
+    background-image: linear-gradient(to right, var(--purple-600), var(--green-500));
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#contato form button[type="submit"]:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+#contato form button[type="submit"]:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.75);
+}
+
+#contato form button[type="submit"] svg {
+    margin-right: 0.75rem;
+    margin-left: -0.25rem;
+}
+
+#contato form #submit-status {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+#contato form #submit-status.bg-green-700 {
+    background-color: var(--green-700);
+}
+
+#contato form #submit-status.bg-red-700 {
+    background-color: var(--red-700);
+}
+
+#contato .mt-8 {
+    margin-top: 2rem;
+}
+
+#contato .text-center {
+    text-align: center;
+}
+
+#contato .text-gray-400 {
+    color: var(--gray-400);
+}
+
+#contato .mt-2 {
+    margin-top: 0.5rem;
+}
+
+#contato .text-green-400 {
+    color: var(--green-400);
+}
+
+#contato .font-semibold {
+    font-weight: 600;
+}
+
+#contato .break-all {
+    word-break: break-all;
+}
+
+#contato .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    margin-left: 1rem;
+}
+
+#contato a.text-gray-400 svg {
+    width: 2rem; /* w-8 */
+    height: 2rem; /* h-8 */
+}
+
+#contato a.hover\:text-green-500:hover {
+    color: var(--green-500);
+}
